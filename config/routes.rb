@@ -3,5 +3,8 @@ Rails.application.routes.draw do
   get '/home', to: 'home#index'
   get '/halo/:id', to: 'home#halo'
 
-  resources :books
+  resources :books do
+    get :active, on: :collection
+    patch :toggle, on: :member
+  end
 end
